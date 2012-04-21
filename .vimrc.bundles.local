@@ -1,2 +1,3 @@
+let g:spf13_bundle_groups=['general', 'programming', 'ruby', 'javascript', 'html', 'misc']
 Bundle 'VimClojure'
 Bundle 'paredit.vim'
