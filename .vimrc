@@ -36,7 +36,7 @@
     " }
 
 " }
-
+set path+=src
 " Bundles {
     " Deps
         Bundle 'gmarik/vundle'
@@ -318,7 +318,7 @@
     map <leader>ew :e %%
     map <leader>es :sp %%
     map <leader>ev :vsp %%
-    map <leader>et :tabe %%
+    " map <leader>et :tabe %%
 
     " Adjust viewports to the same size
     map <Leader>= <C-w>=
