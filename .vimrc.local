@@ -1,0 +1,3 @@
+colorscheme zenburn
+let vimclojure#WantNailgun = 1
+

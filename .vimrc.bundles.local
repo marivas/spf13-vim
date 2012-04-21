@@ -1,0 +1,2 @@
+Bundle 'VimClojure'
+Bundle 'paredit.vim'
