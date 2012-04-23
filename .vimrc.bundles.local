@@ -1,3 +1,5 @@
+"Para instalar los bundles: vim +BundleInstall! +BundleClean +q
 let g:spf13_bundle_groups=['general', 'programming', 'ruby', 'javascript', 'html', 'misc']
 Bundle 'VimClojure'
 Bundle 'paredit.vim'
+Bundle 'Shougo/neocomplcache-snippets-complete'
