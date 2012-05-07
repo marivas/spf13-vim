@@ -1,6 +1,7 @@
 colorscheme zenburn
 let maplocalleader=","
-let vimclojure#WantNailgun = 1
-let g:vimclojure#ParenRainbow = 1
-let g:vimclojure#DynamicHighlighting = 1
-set path+=../../**
+
+" for slimv
+let g:slimv_keybindings=2
+
+""let g:slimv_swank_clojure = '!osascript -e "tell application \"Terminal\" to do script \"lein swank\""'

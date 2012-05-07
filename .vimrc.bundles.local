@@ -1,7 +1,5 @@
 "Para instalar los bundles: vim +BundleInstall! +BundleClean +q
 let g:spf13_bundle_groups=['general', 'programming', 'javascript', 'html', 'misc']
-Bundle 'VimClojure'
-Bundle 'paredit.vim'
 Bundle 'Shougo/neocomplcache-snippets-complete'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
@@ -9,3 +7,4 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-ragtag'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'mattn/zencoding-vim'
+Bundle 'slimv.vim'
