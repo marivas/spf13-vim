@@ -322,6 +322,10 @@ set path+=src
 
     " Adjust viewports to the same size
     map <Leader>= <C-w>=
+
+    " Easier horizontal scrolling
+    map zl zL
+    map zh zH
 " }
 
 " Plugins {
@@ -365,10 +369,6 @@ set path+=src
         set tags=./tags;/,~/.vimtags
     " }
 
-    " EasyTags {
-        let g:easytags_cmd = 'ctags'
-    " }
-
     " AutoCloseTag {
         " Make it so AutoCloseTag works for xml and xhtml files as well
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
@@ -379,8 +379,6 @@ set path+=src
         " Setting the author var
         " If forking, please overwrite in your .vimrc.local file
         let g:snips_author = 'Steve Francia <steve.francia@gmail.com>'
-        " Shortcut for reloading snippets, useful when developing
-        nnoremap ,smr <esc>:exec ReloadAllSnippets()<cr>
     " }
 
     " NerdTree {
