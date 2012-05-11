@@ -5,3 +5,4 @@ let maplocalleader=","
 let g:slimv_keybindings=2
 
 ""let g:slimv_swank_clojure = '!osascript -e "tell application \"Terminal\" to do script \"lein swank\""'
+let g:slimv_preferred = 'clisp'
