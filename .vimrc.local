@@ -33,7 +33,7 @@ let g:tagbar_type_clojure = {
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$|target$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$' }
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|target$\|\.idea$\|\.settings$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$' }
 
 
