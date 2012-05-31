@@ -11,3 +11,29 @@ let g:slimv_preferred = 'clisp'
 set shiftwidth=2                " use indents of 4 spaces
 set tabstop=2                   " an indentation every four columns
 set softtabstop=2               " let backspace delete indent
+
+" Tagbar
+let g:tagbar_ctags_bin="/usr/local/bin/ctags"
+let g:tagbar_type_clojure = {
+    \ 'ctagstype' : 'clojure',
+    \ 'kinds'     : [
+        \ 'n:namespace:1',
+        \ 'd:definition',
+        \ 'f:function',
+        \ 'p:private function',
+        \ 'm:macro',
+        \ 'i:inline',
+        \ 'a:multimethod definition',
+        \ 'b:multimethod instance',
+        \ 'c:definition (once)',
+        \ 's:struct',
+        \ 'v:intern'
+        \ ]
+    \ }
+
+" CtrlP
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$|target$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$' }
+
+
