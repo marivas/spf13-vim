@@ -130,7 +130,7 @@ set path+=src
 
     " Ruby
         if count(g:spf13_bundle_groups, 'ruby')
-            Bundle 'rails.vim'
+            Bundle 'tpope/vim-rails'
         endif
 
     " Misc
@@ -538,11 +538,18 @@ set path+=src
     if has('gui_running')
         set guioptions-=T           " remove the toolbar
         set lines=40                " 40 lines of text instead of 24,
-        set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+        if has("gui_gtk2")
+            set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
+        else
+            set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+        endif
         if has('gui_macvim')
             set transparency=5          " Make the window slightly transparent
         endif
     else
+        if &term == 'xterm' || &term == 'screen'
+            set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+        endif
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
 " }
