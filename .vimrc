@@ -30,7 +30,8 @@
     " }
     "
     " Setup Bundle Support {
-    " The next two lines ensure that the ~/.vim/bundle/ system works
+    " The next three lines ensure that the ~/.vim/bundle/ system works
+        filetype off
         set rtp+=~/.vim/bundle/vundle
         call vundle#rc()
     " }
@@ -82,6 +83,8 @@ set path+=src
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
             Bundle 'corntrace/bufexplorer'
+            Bundle 'mbbill/undotree'
+            Bundle 'myusuf3/numbers.vim'
         endif
 
     " General Programming
@@ -134,14 +137,22 @@ set path+=src
     " Ruby
         if count(g:spf13_bundle_groups, 'ruby')
             Bundle 'tpope/vim-rails'
+            let g:rubycomplete_buffer_loading = 1
+            "let g:rubycomplete_classes_in_global = 1
+            "let g:rubycomplete_rails = 1
         endif
 
     " Misc
         if count(g:spf13_bundle_groups, 'misc')
-            Bundle 'spf13/vim-markdown'
+            Bundle 'tpope/vim-markdown'
             Bundle 'spf13/vim-preview'
             Bundle 'tpope/vim-cucumber'
             Bundle 'Puppet-Syntax-Highlighting'
+        endif
+
+    " Twig
+        if count(g:spf13_bundle_groups, 'twig')
+            Bundle 'beyondwords/vim-twig'
         endif
     endif
 " }
@@ -173,9 +184,15 @@ set path+=src
             set undolevels=1000         "maximum number of changes that can be undone
             set undoreload=10000        "maximum number lines to save for undo on a buffer reload
         endif
+
+    " To disable views set
+    " g:spf13_no_views = 1
+    " in your .vimrc.bundles.local file"
+    if !exists('g:spf13_no_views')
         " Could use * rather than *.*, but I prefer to leave .files unsaved
         au BufWinLeave *.* silent! mkview  "make vim save view (state) (folds, cursor, etc)
         au BufWinEnter *.* silent! loadview "make vim load view (state) (folds, cursor, etc)
+    endif
     " }
 " }
 
@@ -244,6 +261,7 @@ set path+=src
     "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
     " Remove trailing whitespaces and ^M chars
     autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+    autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 " }
 
 " Key (re)Mappings {
@@ -272,10 +290,18 @@ set path+=src
     map <S-L> gt
 
     " Stupid shift key fixes
-    cmap W w
-    cmap WQ wq
-    cmap wQ wq
-    cmap Q q
+    if has("user_commands")
+        command! -bang -nargs=* -complete=file E e<bang> <args>
+        command! -bang -nargs=* -complete=file W w<bang> <args>
+        command! -bang -nargs=* -complete=file Wq wq<bang> <args>
+        command! -bang -nargs=* -complete=file WQ wq<bang> <args>
+        command! -bang Wa wa<bang>
+        command! -bang WA wa<bang>
+        command! -bang Q q<bang>
+        command! -bang QA qa<bang>
+        command! -bang Qa qa<bang>
+    endif
+
     cmap Tabe tabe
 
     " Yank from the cursor to the end of the line, to be consistent with C and D.
@@ -533,6 +559,9 @@ set path+=src
 
      " }
 
+     " UndoTree {
+        nnoremap <c-u> :UndotreeToggle<CR>
+     " }
 
 " }
 
